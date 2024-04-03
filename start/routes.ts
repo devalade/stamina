@@ -7,7 +7,10 @@
 |
 */
 
-const HomeController = () => import('#controllers/home_controller')
 import router from '@adonisjs/core/services/router'
 
-router.get('/home', [HomeController])
+router.get('/home', function({ inertia }) {
+  return inertia.render('home')
+})
+
+import './auth.js'
