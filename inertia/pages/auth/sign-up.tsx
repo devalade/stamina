@@ -1,20 +1,28 @@
 import { Head, Link, useForm } from '@inertiajs/react'
+import { AuthContainer } from './_components/auth-container'
 import { Button } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
 import { Label } from '~/components/ui/label'
 
-export default function LoginForm() {
-  const form = useForm()
+export default function SignUpPage() {
+  const form = useForm({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  })
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    console.log(form.data)
     form.post('/sign-up')
   }
 
   return (
-    <div>
+    <AuthContainer>
       <Head title="Sign up" />
-      <p>test</p>
+
       <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-xl">Sign Up</CardTitle>
@@ -34,6 +42,7 @@ export default function LoginForm() {
                   onChange={(e) => form.setData('firstName', e.target.value)}
                 />
               </div>
+              {form.errors.firstName && <div>{form.errors.firstName}</div>}
               <div className="grid gap-2">
                 <Label htmlFor="last-name">Last name</Label>
                 <Input
@@ -41,9 +50,11 @@ export default function LoginForm() {
                   placeholder="Robinson"
                   required
                   disabled={form.processing}
-                  value={form.data.firstName}
+                  value={form.data.lastName}
                   onChange={(e) => form.setData('lastName', e.target.value)}
                 />
+
+                {form.errors.lastName && <div>{form.errors.lastName}</div>}
               </div>
             </div>
             <div className="grid gap-2">
@@ -54,9 +65,10 @@ export default function LoginForm() {
                 placeholder="m@example.com"
                 required
                 disabled={form.processing}
-                value={form.data.firstName}
+                value={form.data.email}
                 onChange={(e) => form.setData('email', e.target.value)}
               />
+              {form.errors.email && <div>{form.errors.email}</div>}
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
@@ -67,6 +79,7 @@ export default function LoginForm() {
                 value={form.data.password}
                 onChange={(e) => form.setData('password', e.target.value)}
               />
+              {form.errors.password && <div>{form.errors.password}</div>}
             </div>
             <Button type="submit" className="w-full">
               Create an account
@@ -77,12 +90,12 @@ export default function LoginForm() {
           </form>
           <div className="mt-4 text-center text-sm">
             Already have an account?{' '}
-            <Link href="#" className="underline">
+            <Link href="/sign-in" className="underline">
               Sign in
             </Link>
           </div>
         </CardContent>
       </Card>
-    </div>
+    </AuthContainer>
   )
 }
