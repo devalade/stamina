@@ -6,4 +6,4 @@ router.get('/sign-up', [SignUpController, 'show']).as('sign-up.show')
 router.post('/sign-up', [SignUpController]).as('sign-up')
 
 router.get('/sign-in', [SignInController, 'show']).as('sign-in.show')
-router.post('/sign-in', [SignUpController]).as('sign-in')
+router.post('/sign-in', [SignInController]).as('sign-in')

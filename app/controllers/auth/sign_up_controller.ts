@@ -4,10 +4,10 @@ import User from '#models/user'
 
 export default class SignUpController {
   async show({ inertia }: HttpContext) {
-    return inertia.render('auth/sign-up')
+    return inertia.render('auth/sign_up')
   }
 
-  async handle({ inertia, request, response }: HttpContext) {
+  async handle({ request, response }: HttpContext) {
     const payload = await request.validateUsing(signUpValidator)
     await User.create(payload)
     return response.redirect().toRoute('sign-in')
