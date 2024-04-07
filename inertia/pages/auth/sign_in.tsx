@@ -14,7 +14,6 @@ export default function SignInPage() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log(form.data)
     form.post('/sign-in')
   }
 
@@ -54,14 +53,14 @@ export default function SignInPage() {
               {form.errors.password && <ErrorMessage message={form.errors.password} />}
             </div>
             <Button type="submit" className="w-full">
-              Signin
+              Sign In
             </Button>
             <Button variant="outline" className="w-full">
               Sign in with GitHub
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Doesn't have an account ?
+            Don't have an account ?
             <Link href="/sign-up" className="underline">
               Sign in
             </Link>
