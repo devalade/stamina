@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-
   darkMode: ['class'],
   content: [
     './resources/**/*.egde',
@@ -19,6 +18,7 @@ export default {
     },
     extend: {
       colors: {
+        root: "#05050a",
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -59,7 +59,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ["Inter"]
+        sans: ['Inter'],
       },
       keyframes: {
         'accordion-down': {

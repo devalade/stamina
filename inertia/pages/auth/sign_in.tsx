@@ -21,10 +21,17 @@ export default function SignInPage() {
     <AuthContainer>
       <Head title="Sign up" />
 
-      <Card className="mx-auto max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-xl">Sign In </CardTitle>
-          <CardDescription>Enter your information to login into your account</CardDescription>
+      <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
+        <CardHeader className='mb-8'>
+          <CardTitle className=" mt-8 text-center sm:text-left text-xl tracking-[-0.16px] text-slate-12 font-bold text-slate-200">
+            Sign in tp Stamina
+          </CardTitle>
+          <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
+            Don't have an account?{' '}
+            <Link href="/sign-up" className="text-blue-500">
+              Sign up
+            </Link>{' '}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={onSubmit} className="grid gap-4">
@@ -59,12 +66,6 @@ export default function SignInPage() {
               Sign in with GitHub
             </Button>
           </form>
-          <div className="mt-4 text-center text-sm">
-            Don't have an account ?
-            <Link href="/sign-up" className="underline">
-              Sign in
-            </Link>
-          </div>
         </CardContent>
       </Card>
     </AuthContainer>
