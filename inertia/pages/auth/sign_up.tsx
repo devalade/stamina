@@ -1,22 +1,23 @@
 import { Head, Link, useForm } from '@inertiajs/react'
 import { AuthContainer } from './_components/auth-container'
-import { Button } from '~/components/ui/button'
+import { Button, buttonVariants } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
 import { Label } from '~/components/ui/label'
 import { ErrorMessage } from '~/components/error_message'
+import GithubIcon from '~/components/icons/github_icon'
+import GoogleIcon from '~/components/icons/google_icon'
 
-export default function SignUpPage() {
+export default function SignInPage() {
   const form = useForm({
-    firstName: '',
     lastName: '',
+    firstName: '',
     email: '',
     password: '',
   })
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log(form.data)
     form.post('/sign-up')
   }
 
@@ -24,39 +25,46 @@ export default function SignUpPage() {
     <AuthContainer>
       <Head title="Sign up" />
 
-      <Card className="mx-auto max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-xl">Sign Up</CardTitle>
-          <CardDescription>Enter your information to create an account</CardDescription>
+      <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
+        <CardHeader className="mb-8">
+          <CardTitle className=" mt-8 text-center sm:text-left text-xl tracking-[-0.16px] text-slate-12 font-bold text-slate-200">
+            Create Stamina account
+          </CardTitle>
+          <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
+            Already have an account?{' '}
+            <Link href="/sign-up" className="text-blue-500">
+              Log in
+            </Link>{' '}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={onSubmit} className="grid gap-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="first-name">First name</Label>
-                <Input
-                  id="first-name"
-                  placeholder="Max"
-                  required
-                  disabled={form.processing}
-                  value={form.data.firstName}
-                  onChange={(e) => form.setData('firstName', e.target.value)}
-                />
-              </div>
+            <div className="grid gap-2">
+              <Label htmlFor="firstName">Firstname</Label>
+              <Input
+                id="firstName"
+                placeholder="John"
+                required
+                disabled={form.processing}
+                value={form.data.email}
+                onChange={(e) => form.setData('firstName', e.target.value)}
+              />
               {form.errors.firstName && <ErrorMessage message={form.errors.firstName} />}
-              <div className="grid gap-2">
-                <Label htmlFor="last-name">Last name</Label>
-                <Input
-                  id="last-name"
-                  placeholder="Robinson"
-                  required
-                  disabled={form.processing}
-                  value={form.data.lastName}
-                  onChange={(e) => form.setData('lastName', e.target.value)}
-                />
-                {form.errors.lastName && <ErrorMessage message={form.errors.lastName} />}
-              </div>
             </div>
+
+            <div className="grid gap-2">
+              <Label htmlFor="lastName">Lastname</Label>
+              <Input
+                id="lastName"
+                placeholder="Doe"
+                required
+                disabled={form.processing}
+                value={form.data.email}
+                onChange={(e) => form.setData('lastName', e.target.value)}
+              />
+              {form.errors.lastName && <ErrorMessage message={form.errors.lastName} />}
+            </div>
+
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -82,18 +90,77 @@ export default function SignUpPage() {
               {form.errors.password && <ErrorMessage message={form.errors.password} />}
             </div>
             <Button type="submit" className="w-full">
-              Create an account
+              Sign In
             </Button>
-            <Button variant="outline" className="w-full">
-              Sign up with GitHub
-            </Button>
+            <div className="mb-6 mt-6 flex items-center justify-center">
+              <div
+                aria-hidden="true"
+                className="h-px w-full bg-primary-foreground"
+                data-orientation="horizontal"
+                role="separator"
+              ></div>
+              <span className="mx-4 text-xs text-primary font-normal">OR</span>
+              <div
+                aria-hidden="true"
+                className="h-px w-full bg-primary-foreground"
+                data-orientation="horizontal"
+                role="separator"
+              ></div>
+            </div>
           </form>
-          <div className="mt-4 text-center text-sm">
-            Already have an account?{' '}
-            <Link href="/sign-in" className="underline">
-              Sign in
+          <div className="flex items-center gap-x-4">
+            <Link
+              href=""
+              className={buttonVariants({
+                variant: 'outline',
+                className: 'block w-full gap-x-2',
+              })}
+            >
+              <GithubIcon className="w-6 h-6 " />
+              Sign up with GitHub
+            </Link>
+            <Link
+              href=""
+              className={buttonVariants({ variant: 'outline', className: 'block w-full gap-x-2' })}
+            >
+              <GoogleIcon className="w-6 h-6" />
+              Sign up with Google
             </Link>
           </div>
+          <Link
+            href=""
+            className={buttonVariants({ variant: 'outline', className: 'block w-full mt-4' })}
+          >
+            Sign up with SSO
+          </Link>
+
+          <p className="text-xs text-slate-11 font-normal mt-4">
+            By signing up, you agree to our{' '}
+            <Link
+              className="text-blue-500 hover:underline"
+              target="_blank"
+              href="/legal/terms-of-service"
+            >
+              terms
+            </Link>
+            ,{' '}
+            <Link
+              className="text-blue-500 hover:underline"
+              target="_blank"
+              href="/legal/acceptable-use"
+            >
+              acceptable use
+            </Link>
+            , and{' '}
+            <Link
+              className="text-blue-500 hover:underline"
+              target="_blank"
+              href="/legal/privacy-policy"
+            >
+              privacy policy
+            </Link>
+            .
+          </p>
         </CardContent>
       </Card>
     </AuthContainer>
