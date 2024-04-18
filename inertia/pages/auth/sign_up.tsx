@@ -46,7 +46,7 @@ export default function SignInPage() {
                 placeholder="John"
                 required
                 disabled={form.processing}
-                value={form.data.email}
+                value={form.data.firstName}
                 onChange={(e) => form.setData('firstName', e.target.value)}
               />
               {form.errors.firstName && <ErrorMessage message={form.errors.firstName} />}
@@ -59,7 +59,7 @@ export default function SignInPage() {
                 placeholder="Doe"
                 required
                 disabled={form.processing}
-                value={form.data.email}
+                value={form.data.lastName}
                 onChange={(e) => form.setData('lastName', e.target.value)}
               />
               {form.errors.lastName && <ErrorMessage message={form.errors.lastName} />}
@@ -90,7 +90,7 @@ export default function SignInPage() {
               {form.errors.password && <ErrorMessage message={form.errors.password} />}
             </div>
             <Button type="submit" className="w-full">
-              Sign In
+              Sign Up
             </Button>
             <div className="mb-6 mt-6 flex items-center justify-center">
               <div

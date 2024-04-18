@@ -13,7 +13,7 @@ export default function SignInPage() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    form.post('/reset-password')
+    form.post('/forgot-password')
   }
 
   return (

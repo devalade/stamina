@@ -1,77 +1,55 @@
-# AdonisJS Inertia Starter Kit
+## Stamina: A Streamlined AdonisJS Starter Kit
 
-This repo contains an AdonisJS application tailored for building an Inertia powered application using your favorite frontend framework. ( React, Vue, Solid.js, Svelte )
+Stamina provides a robust and efficient foundation for building modern web applications using AdonisJS, Inertia.js, Tailwind CSS, and Resend. This starter kit streamlines development by offering pre-configured components and functionalities to jumpstart your project.
 
-## What's included
+**Key Features:**
 
-- TypeScript setup with commands to run developments server using `ts-node + swc` and create production build.
-- ESLint and Prettier setup extending the [AdonisJS tooling config](https://github.com/adonisjs/tooling-config) presets.
-- Ace command line framework.
-- Everything else you get with the core of AdonisJS.
+- **AdonisJS Framework:** - Leverage the power and flexibility of AdonisJS for building scalable and maintainable web applications.
+- **Inertia.js Integration:** - Enjoy seamless server-side rendering and state management with Inertia.js, providing a reactive and intuitive user experience.
+- **Tailwind CSS Styling:** - Craft beautiful and responsive UIs effortlessly using Tailwind's utility-first approach.
+- **ShadCN UI:** - A collection of TailwindCSS components
+- **Resend Integration:** - A transactional email service
+- **Authentication (Optional):** - Easily integrate AdonisJS's built-in authentication features or explore third-party solutions for more complex needs.
+- **Testing Support:** - Ensure code quality and maintainability with pre-configured testing tools.
 
-On top of the framework core and dev-tooling, the following features are enabled by the inertia starter kit.
+**Getting Started:**
 
-- Lucid ORM ( Installed, but not configured )
-- Auth module ( Installed, but not configured )
-- CSRF protection
-- Edge template engine
-- VineJS for validations
-- Static files server
-- Vite for bundling and serving frontend assets
-- Inertia.js for building server-driven single-page apps
-- Your favorite frontend framework ( React, Vue, Solid.js, Svelte )
+1. **Prerequisites:** Node.js (version 14 or later) and npm (or yarn) are required.
+2. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/devalade/stamina.git](https://github.com/devalade/stamina.git)
+    ```
+3. **Install Dependencies:**
+  ```bash
+  cd stamina
+  npm install
+  ```
 
-## Usage
+4. **Database Setup:**
+- Configure your database connection details in `.env` (refer to AdonisJS documentation for specific instructions).
+- Run migration: 
+  ```bash
+  node ace migration:run 
+  ```
+5. **Start the developpement server:**
+  ```bash
+  node ace serve
+  ```
 
-You can create a new app using the `inertia` boilerplate by executing the following command. The command will perform the following steps.
+6. **Access the Application:**
+- Open http://localhost:3333 (or your configured port) in your browser.
 
-- Clone the repo
-- Install dependencies
-- Copy `.env.example` to `.env`
-- Set app key using `node ace generate:key` command.
-- Configure `@adonisjs/lucid` package.
-- Configure `@adonisjs/auth` package.
-- Configure `@adonisjs/inertia` package.
+## Additional Notes:
 
-```sh
-npm init adonisjs -- -K=inertia
-```
+- For more advanced usage and customization, refer to the official documentation for AdonisJS, Inertia.js, Tailwind CSS, and Resend.
+- Feel free to contribute to this starter kit by creating pull requests!
 
-### Configuring Lucid database dialect
 
-```sh
-npm init adonisjs -- -K=inertia --db=postgres
-```
+## Contributing:
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Implement your modifications and ensure proper testing.
+4. Submit a pull request for review.
 
-Available options for the `--db` flag.
-
-- sqlite
-- postgres
-- mysql
-- mssql
-
-### Configuring Auth package guard
-
-```sh
-npm init adonisjs -- -K=inertia --auth-guard=access_tokens
-```
-
-Available options for the `--auth-guard` flag.
-
-- session
-- basic_auth
-- access_tokens
-
-### Configuring Inertia
-
-You can pass the `--adapter` flag to configure the frontend adapter. Available options are `react`, `vue`, `solid`, and `svelte`.
-
-```sh
-npm init adonisjs -- -K=inertia --adapter=react
-```
-
-You can also pass the `--ssr` or `--no-ssr` flag to enable or disable server-side rendering.
-
-```sh
-npm init adonisjs -- -K=inertia --ssr
-```
+## License:
+This project is open-source and available under the [MIT License](https://github.com/devalade/stamina/LICENSE).
