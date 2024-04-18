@@ -127,12 +127,6 @@ export default function SignInPage() {
               Sign up with Google
             </Link>
           </div>
-          <Link
-            href=""
-            className={buttonVariants({ variant: 'outline', className: 'block w-full mt-4' })}
-          >
-            Sign up with SSO
-          </Link>
 
           <p className="text-xs text-slate-11 font-normal mt-4">
             By signing up, you agree to our{' '}

@@ -13,6 +13,9 @@ router.post('/sign-in', [SignInController]).as('sign-in')
 router.get('/reset-password', [ResetPasswordController, 'show']).as('reset-password.show')
 router.post('/reset-password', [ResetPasswordController]).as('reset-password')
 
+router.get('/forgot-password', [ResetPasswordController, 'show']).as('forgot-password.show')
+router.post('/forgot-password', [ResetPasswordController]).as('forgot-password')
+
 router.get('/legal/acceptable_use', function ({ inertia }: HttpContext) {
   return inertia.render('legal/acceptable-use')
 })

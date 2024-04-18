@@ -104,14 +104,7 @@ export default function SignInPage() {
               Login with Google
             </Link>
           </div>
-          <Link
-            href=""
-            className={buttonVariants({ variant: 'outline', className: 'block w-full mt-4' })}
-          >
-            Login with SSO
-          </Link>
-
-          <p className="text-xs text-slate-11 font-normal mt-4">
+                   <p className="text-xs text-slate-11 font-normal mt-4">
             By signing in, you agree to our{' '}
             <Link className="text-blue-500 hover:underline" href="/legal/terms-of-service">
               Terms of Service
