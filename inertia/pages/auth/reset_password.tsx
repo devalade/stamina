@@ -18,28 +18,22 @@ export default function SignInPage() {
 
   return (
     <AuthContainer>
-      <Head title="Sign up" />
+      <Head title="Reset password" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
         <CardHeader className="mb-8">
           <CardTitle className=" mt-8 text-center sm:text-left text-xl tracking-[-0.16px] text-slate-12 font-bold text-slate-200">
-            Sign in tp Stamina
+            Reset your passowrd
           </CardTitle>
-          <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
-            Don't have an account?{' '}
-            <Link href="/sign-up" className="text-blue-500">
-              Sign up
-            </Link>{' '}
-          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={onSubmit} className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">New Password</Label>
               <Input
                 id="email"
-                type="email"
-                placeholder="m@example.com"
+                type="password"
+                placeholder="••••••••••••"
                 required
                 disabled={form.processing}
                 value={form.data.email}
@@ -47,8 +41,23 @@ export default function SignInPage() {
               />
               {form.errors.email && <ErrorMessage message={form.errors.email} />}
             </div>
-            <Button type="submit" className="w-full">
-              Send reset instructions
+
+            <div className="grid gap-2">
+              <Label htmlFor="email">Confirm Password</Label>
+              <Input
+                id="confirmPassword"
+                type="confirmPassword"
+                placeholder="••••••••••••"
+                required
+                disabled={form.processing}
+                value={form.data.email}
+                onChange={(e) => form.setData('email', e.target.value)}
+              />
+              {form.errors.email && <ErrorMessage message={form.errors.email} />}
+            </div>
+
+            <Button isLoading={form.processing} type="submit">
+              Reset Password
             </Button>
           </form>
         </CardContent>

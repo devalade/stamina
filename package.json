@@ -83,6 +83,7 @@
     "pg": "^8.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "reflect-metadata": "^0.2.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"

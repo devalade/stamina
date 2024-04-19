@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/com
 import { Input } from '~/components/ui/input'
 import { Label } from '~/components/ui/label'
 import { ErrorMessage } from '~/components/error_message'
+import { toast } from 'react-hot-toast'
+import { useState } from 'react'
 
 export default function SignInPage() {
   const form = useForm({
@@ -13,7 +15,9 @@ export default function SignInPage() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    form.post('/forgot-password')
+    form.post('/forgot-password', {
+      onSuccess: () => toast.success('The instructions has been sent to your email.'),
+    })
   }
 
   return (
