@@ -8,12 +8,13 @@ import { ErrorMessage } from '~/components/error_message'
 
 export default function SignInPage() {
   const form = useForm({
-    email: '',
+    newPassword: '',
+    confirmPassword: '',
   })
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    form.post('/forgot-password')
+    form.post(window.location.href)
   }
 
   return (
@@ -36,24 +37,26 @@ export default function SignInPage() {
                 placeholder="••••••••••••"
                 required
                 disabled={form.processing}
-                value={form.data.email}
-                onChange={(e) => form.setData('email', e.target.value)}
+                value={form.data.newPassword}
+                onChange={(e) => form.setData('newPassword', e.target.value)}
               />
-              {form.errors.email && <ErrorMessage message={form.errors.email} />}
+              {form.errors.newPassword && <ErrorMessage message={form.errors.newPassword} />}
             </div>
 
             <div className="grid gap-2">
               <Label htmlFor="email">Confirm Password</Label>
               <Input
                 id="confirmPassword"
-                type="confirmPassword"
+                type="password"
                 placeholder="••••••••••••"
                 required
                 disabled={form.processing}
-                value={form.data.email}
-                onChange={(e) => form.setData('email', e.target.value)}
+                value={form.data.confirmPassword}
+                onChange={(e) => form.setData('confirmPassword', e.target.value)}
               />
-              {form.errors.email && <ErrorMessage message={form.errors.email} />}
+              {form.errors.confirmPassword && (
+                <ErrorMessage message={form.errors.confirmPassword} />
+              )}
             </div>
 
             <Button isLoading={form.processing} type="submit">

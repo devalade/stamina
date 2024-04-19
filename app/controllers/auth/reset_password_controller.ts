@@ -1,7 +1,6 @@
-import ResetPasswordNotification from '#mails/reset_password_notification'
 import User from '#models/user'
+import { resetPasswordValidator } from '#validators/auth/reset_password_validator'
 import type { HttpContext } from '@adonisjs/core/http'
-import mail from '@adonisjs/mail/services/main'
 
 export default class ResetPasswordsController {
   async show({ inertia, request, response }: HttpContext) {
@@ -13,12 +12,19 @@ export default class ResetPasswordsController {
 
   async handle({ inertia, request, response }: HttpContext) {
     if (!request.hasValidSignature()) {
-      console.log("Here we go")
-      return response.redirect().toPath('/forgot-password')
+      return response.redirect().toPath('/auth/forgot_password')
     }
-    const email = request.input('email')
-    const user = await User.findByOrFail('email', email)
-    await mail.send(new ResetPasswordNotification(user))
-    return inertia.render('pages/auth/signup')
+
+    const { newPassword } = await request.validateUsing(resetPasswordValidator)
+
+    const user = await User.findBy('email', request.param('email'))
+    if (!user) {
+      return response.redirect().toPath('/auth/sign_up')
+    }
+
+    user.password = newPassword
+    await user.save()
+
+    return response.redirect().toPath('/sign-in')
   }
 }

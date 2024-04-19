@@ -53,7 +53,7 @@ export default function SignInPage() {
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link href="/reset-password" className="text-blue-500 text-sm">
+                <Link href="/forgot-password" className="text-blue-500 text-sm">
                   Forgot your password?
                 </Link>
               </div>
