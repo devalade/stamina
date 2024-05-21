@@ -29,6 +29,7 @@ Stamina provides a robust and efficient foundation for building modern web appli
 - Configure your database connection details in `.env` (refer to AdonisJS documentation for specific instructions).
 - Run migration: 
   ```bash
+  // touch tmp/db.sqlite3 # Run this command if you are using sqlite driver
   node ace migration:run 
   ```
 5. **Start the developpement server:**
