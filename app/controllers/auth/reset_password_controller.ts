@@ -10,7 +10,7 @@ export default class ResetPasswordsController {
     return inertia.render('auth/reset_password')
   }
 
-  async handle({ inertia, request, response }: HttpContext) {
+  async handle({ request, response }: HttpContext) {
     if (!request.hasValidSignature()) {
       return response.redirect().toPath('/auth/forgot_password')
     }

@@ -9,7 +9,7 @@ export const signUpValidator = vine.compile(
       .email()
       .trim()
       .normalizeEmail()
-      .unique(async (db, value, field) => {
+      .unique(async (db, value) => {
         const user = await db.from('users').where('email', value).first()
         return !user
       }),

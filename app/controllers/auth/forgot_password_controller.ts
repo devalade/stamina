@@ -8,7 +8,7 @@ export default class ForgotPasswordController {
     return inertia.render('auth/forgot_password')
   }
 
-  async handle({ inertia, request, response }: HttpContext) {
+  async handle({ inertia, request }: HttpContext) {
     const email = request.input('email')
 
       const user = await User.findByOrFail('email', email)

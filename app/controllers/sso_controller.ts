@@ -5,10 +5,11 @@ export default class SsoController {
     return inertia.render('auth/sso')
   }
 
-  async handle({ inertia, request }: HttpContext) {
+  async handle({ request,  response }: HttpContext) {
     const email = request.input('email')
 
     // TODO:: Send login link to the user (10minutes max)
+    return response.json({ email })
   }
 
   // TODO: add function to verify the login credentials in the url
