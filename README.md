@@ -17,7 +17,7 @@ Stamina provides a robust and efficient foundation for building modern web appli
 1. **Prerequisites:** Node.js (version 14 or later) and npm (or yarn) are required.
 2. **Clone the Repository:**
    ```bash
-   git clone [https://github.com/devalade/stamina.git](https://github.com/devalade/stamina.git)
+   git clone https://github.com/devalade/stamina.git
     ```
 3. **Install Dependencies:**
   ```bash
