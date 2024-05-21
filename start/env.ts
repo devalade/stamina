@@ -30,6 +30,7 @@ export default await Env.create(new URL('../', import.meta.url), {
   | Variables for configuring database connection
   |----------------------------------------------------------
   */
+  DB_CONNECTION: Env.schema.string({ format: 'host' }),
   DB_HOST: Env.schema.string({ format: 'host' }),
   DB_PORT: Env.schema.number(),
   DB_USER: Env.schema.string(),
@@ -44,7 +45,5 @@ export default await Env.create(new URL('../', import.meta.url), {
   FROM: Env.schema.string(),
   SMTP_HOST: Env.schema.string(),
   SMTP_PORT: Env.schema.string(),
-  MAILGUN_API_KEY: Env.schema.string(),
-  MAILGUN_DOMAIN: Env.schema.string(),
   RESEND_API_KEY: Env.schema.string()
 })
