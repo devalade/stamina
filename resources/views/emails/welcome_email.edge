@@ -1,0 +1,46 @@
+
+@mjml({
+  keepComments: false,
+  fonts: {
+    Lato: 'https://fonts.googleapis.com/css?family=Lato:400,500,700'
+  }
+})
+
+<mjml>
+  <mj-head>
+    <mj-title>Welcome to Stamina!</mj-title>
+    <mj-attributes>
+      <mj-all font-family="Arial, sans-serif"></mj-all>
+      <mj-text padding="0px 20px 20px 20px" color="#000000" line-height="22px" font-size="14px"></mj-text>
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#F4F4F4">
+    <mj-wrapper padding="0px">
+      <mj-section background-color="#ffffff" padding="40px">
+        <mj-column>
+          <mj-text font-weight="bold" font-size="20px" line-height="28px" color="#2E2E2E">Hi {{ lastName }},</mj-text>
+          <mj-text padding-top="10px">
+            Welcome to Stamina! We're thrilled to have you on board.
+          </mj-text>
+          <mj-text padding-top="20px">
+            Get started by exploring our [mention key features or content].
+          </mj-text>
+          <mj-text padding-top="20px">
+            For any questions, our friendly support team is here to help. Just reply to this email!
+          </mj-text>
+          <mj-text padding-top="20px">
+            Welcome aboard!
+          </mj-text>
+          <mj-text padding-top="10px">
+            Sincerely,
+          </mj-text>
+          <mj-text>
+            The Stamina Team
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
+@end
+
