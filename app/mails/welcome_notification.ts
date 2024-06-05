@@ -5,7 +5,7 @@ import { BaseMail } from '@adonisjs/mail'
 export default class WelcomeNotification extends BaseMail {
   from = env.get('FROM')
 
-  constructor(private user: User) {
+  constructor(private readonly user: User) {
     super()
   }
 
@@ -18,4 +18,3 @@ export default class WelcomeNotification extends BaseMail {
     this.message.htmlView('emails/welcome_email')
   }
 }
-
