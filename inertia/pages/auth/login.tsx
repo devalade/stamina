@@ -30,7 +30,7 @@ export default function SignInPage() {
           </CardTitle>
           <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
             Don't have an account?{' '}
-            <Link href="/sign-up" className="text-blue-500">
+            <Link href="/register" className="text-blue-500">
               Sign up
             </Link>{' '}
           </CardDescription>
@@ -104,7 +104,7 @@ export default function SignInPage() {
               Login with Google
             </Link>
           </div>
-                   <p className="text-xs text-slate-11 font-normal mt-4">
+          <p className="text-xs text-slate-11 font-normal mt-4">
             By signing in, you agree to our{' '}
             <Link className="text-blue-500 hover:underline" href="/legal/terms-of-service">
               Terms of Service

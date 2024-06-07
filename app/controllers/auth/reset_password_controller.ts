@@ -19,7 +19,7 @@ export default class ResetPasswordsController {
 
     const user = await User.findBy('email', request.param('email'))
     if (!user) {
-      return response.redirect().toPath('/auth/sign_up')
+      return response.redirect().toPath('/auth/regiter')
     }
 
     user.password = newPassword

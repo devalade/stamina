@@ -1,12 +1,11 @@
 import { Head, Link, useForm } from '@inertiajs/react'
 import { AuthContainer } from './_components/auth-container'
-import { Button, buttonVariants } from '~/components/ui/button'
+import { Button } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
 import { Label } from '~/components/ui/label'
 import { ErrorMessage } from '~/components/error_message'
 import { toast } from 'react-hot-toast'
-import { useState } from 'react'
 
 export default function SignInPage() {
   const form = useForm({
@@ -31,7 +30,7 @@ export default function SignInPage() {
           </CardTitle>
           <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
             Don't have an account?{' '}
-            <Link href="/sign-up" className="text-blue-500">
+            <Link href="/register" className="text-blue-500">
               Sign up
             </Link>{' '}
           </CardDescription>

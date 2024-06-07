@@ -13,6 +13,7 @@ export default class ForgotPasswordController {
 
       const user = await User.findByOrFail('email', email)
       await mail.send(new ResetPasswordNotification(user))
-    return inertia.render('auth/sign_up')
+    return inertia.render('auth/register' +
+      'uu')
   }
 }

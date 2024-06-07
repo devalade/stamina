@@ -28,6 +28,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare email: string
 
   @column()
+  declare emailVerifiedAt: DateTime | null
+
+  @column()
   declare password: string
 
   @column.dateTime({ autoCreate: true })

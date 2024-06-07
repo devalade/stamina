@@ -18,7 +18,7 @@ export default function SignInPage() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    form.post('/sign-up')
+    form.post('/register')
   }
 
   return (
@@ -32,7 +32,7 @@ export default function SignInPage() {
           </CardTitle>
           <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
             Already have an account?{' '}
-            <Link href="/sign-up" className="text-blue-500">
+            <Link href="/register" className="text-blue-500">
               Log in
             </Link>{' '}
           </CardDescription>

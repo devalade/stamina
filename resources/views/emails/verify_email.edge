@@ -1,0 +1,50 @@
+
+@mjml({
+  keepComments: false,
+  fonts: {
+    Lato: 'https://fonts.googleapis.com/css?family=Lato:400,500,700'
+  }
+})
+
+<mjml>
+  <mj-head>
+    <mj-title>Verify your email</mj-title>
+    <mj-preview>Almost there! Verify your email to unlock your {{ appName }} account.</mj-preview> <mj-attributes>
+      <mj-all font-family="Arial, sans-serif"></mj-all>
+      <mj-text padding="0px 20px 20px 20px" color="#000000" line-height="22px" font-size="14px"></mj-text>
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#F4F4F4">
+    <mj-wrapper padding="0px">
+      <mj-section background-color="#ffffff" padding="40px">
+        <mj-column>
+          <mj-text font-weight="bold" font-size="20px" line-height="28px" color="#2E2E2E">Hi {{ lastName }},</mj-text>
+          <mj-text padding-top="10px">
+            Welcome to {{ appName }}! We're thrilled to have you on board.
+          </mj-text>
+          <mj-text padding-top="20px">
+            To unlock your full potential on {{ appName }}, please verify your email address by clicking the button below:
+          </mj-text>
+          <mj-button href="{{ url }}" background-color="#33b5ff" color="#ffffff" padding="10px 25px" font-weight="bold">Confirm your email</mj-button>
+          <mj-text padding-top="10px">
+            Having trouble clicking the button? You can also copy and paste the following link into your browser: {{ url }}
+          </mj-text>
+          <mj-text padding-top="20px">
+            For any questions, our friendly support team is here to help. Just reply to this email!
+          </mj-text>
+          <mj-text padding-top="20px">
+            Welcome aboard!
+          </mj-text>
+          <mj-text padding-top="10px">
+            Sincerely,
+          </mj-text>
+          <mj-text>
+            The {{ appName }} Team
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml></mjml>
+@end
+
