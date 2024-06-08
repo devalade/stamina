@@ -10,12 +10,12 @@ export default class RegisterController {
     return inertia.render('auth/register')
   }
 
-  async handle({ request, response }: HttpContext) {
+  async handle({ request, response, auth }: HttpContext) {
     const payload = await request.validateUsing(signUpValidator)
-
     const user = await User.create(payload)
-    await mail.sendLater(new WelcomeNotification(user))
-    await mail.sendLater(new VerifyAccountNotification(user))
+    await auth.use('web').login(user)
+    await mail.send(new WelcomeNotification(user))
+    await mail.send(new VerifyAccountNotification(user))
     return response.redirect().toRoute('verification.notice')
   }
 }

@@ -1,6 +1,8 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import User from '#models/user'
 import { DateTime } from 'luxon'
+import mail from '@adonisjs/mail/services/main'
+import VerifyAccountNotification from '#mails/verify_account_notification'
 
 export default class EmailVerificationsController {
   async verify({ request, response, params, auth, session }: HttpContext) {
@@ -34,6 +36,11 @@ export default class EmailVerificationsController {
 
     session.flash('success', 'Your email has been successfully verified, thank you!')
 
-    return response.redirect().toRoute('auth.login')
+    return response.redirect().toPath('/dashboard')
+  }
+
+  async resendVerification({ inertia, auth }: HttpContext) {
+    await mail.sendLater(new VerifyAccountNotification(auth.user!))
+    return inertia.render('auth/verify_email')
   }
 }

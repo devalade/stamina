@@ -1,15 +1,13 @@
+import type { HttpContext } from '@adonisjs/core/http'
+import router from '@adonisjs/core/services/router'
 import mail from '@adonisjs/mail/services/main'
-
+import VerifyAccountNotification from '#mails/verify_account_notification'
+import { middleware } from '#start/kernel'
 const RegisterController = () => import('#controllers/auth/register_controller')
 const LoginController = () => import('#controllers/auth/login_controller')
 const ResetPasswordController = () => import('#controllers/auth/reset_password_controller')
 const ForgotPasswordController = () => import('#controllers/auth/forgot_password_controller')
-import { HttpContext } from '@adonisjs/core/http'
-import router from '@adonisjs/core/services/router'
-import VerifyAccountNotification from '#mails/verify_account_notification'
-import { DateTime } from 'luxon'
-import User from '#models/user'
-import EmailVerificationsController from "#controllers/email_verifications_controller";
+const EmailVerificationsController = () => import('#controllers/email_verifications_controller')
 
 /**
  * Authentication
@@ -46,6 +44,7 @@ router
     return inertia.render('auth/verify_email')
   })
   .as('verification.notice')
+  .use(middleware.auth())
 
 router
   .get(
@@ -53,11 +52,9 @@ router
     [EmailVerificationsController, 'verify']
   )
   .as('verification.verify')
+  .use(middleware.auth())
 
 router
-  .post('/email/verification-notification', async ({ inertia, auth }: HttpContext) => {
-    await mail.sendLater(new VerifyAccountNotification(auth.user!))
-    return inertia.render('auth/verify_email')
-  })
-  .middleware('web')
+  .post('/email/verification-notification', [EmailVerificationsController, 'resendVerificationEmail'])
+  .use(middleware.auth())
   .as('verification.send')

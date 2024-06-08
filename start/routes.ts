@@ -8,10 +8,20 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import { HttpContext } from '@adonisjs/core/http'
+/**
+ * Authentication routes
+ */
+import './auth.js'
+import { middleware } from '#start/kernel'
 
 router
   .get('/home', function({ inertia }) {
-  return inertia.render('home')
+    return inertia.render('home')
 }).as('home')
 
-import './auth.js'
+router
+  .get('/dashboard', ({ inertia, auth }: HttpContext) => {
+    console.log({ user: auth.user! })
+    return inertia.render('home')
+}).use(middleware.auth())

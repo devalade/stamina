@@ -12,5 +12,6 @@ export const signInValidator = vine.compile(
         return user
       }),
     password: vine.string().minLength(8).trim(),
+    action: vine.string().optional(),
   })
 )

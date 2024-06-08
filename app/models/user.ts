@@ -27,7 +27,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare email: string
 
-  @column()
+  @column.dateTime()
   declare emailVerifiedAt: DateTime | null
 
   @column()

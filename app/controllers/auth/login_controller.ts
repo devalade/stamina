@@ -7,12 +7,18 @@ export default class LoginController {
     return inertia.render('auth/login')
   }
 
-  async handle({ auth, request, response }: HttpContext) {
-    const { email, password } = await request.validateUsing(signInValidator)
-    console.log({ email })
+  async handle({ auth, request, response, session }: HttpContext) {
+    let forward: string = '/home'
+    const { email, password, action } = await request.validateUsing(signInValidator)
     const user = await User.verifyCredentials(email, password)
     await auth.use('web').login(user)
 
-    return response.redirect().toPath('/home')
+    /**
+     * Check if the user need to be redirected to the confirmation
+     */
+    if(action === 'email_verification') {
+      forward = session.get(action)
+    }
+    return response.redirect(forward)
   }
 }
