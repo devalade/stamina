@@ -16,10 +16,11 @@ export default class VerifyAccountNotification extends BaseMail {
    * the email is sent or queued.
    */
   prepare() {
+    const userObject = JSON.parse(JSON.stringify(this.user))
     let href = router.makeSignedUrl(
       'verification.verify',
       {
-        email: this.user.email,
+        email: userObject.email,
       },
       {
         expiresIn: '24h',
@@ -27,14 +28,14 @@ export default class VerifyAccountNotification extends BaseMail {
       }
     )
 
-    console.log({ href })
-
     href = env.get('APP_URL') + href
-    this.message.to(this.user.email)
+    this.message.to('test@mail.com')
     this.message.htmlView('emails/verify_email', {
       url: href,
       appName: env.get('VITE_APP_NAME'),
       lastName: this.user.lastName
     })
+
+    console.log({ userObject })
   }
 }

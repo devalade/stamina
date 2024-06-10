@@ -1,7 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import router from '@adonisjs/core/services/router'
-import mail from '@adonisjs/mail/services/main'
-import VerifyAccountNotification from '#mails/verify_account_notification'
 import { middleware } from '#start/kernel'
 const RegisterController = () => import('#controllers/auth/register_controller')
 const LoginController = () => import('#controllers/auth/login_controller')
@@ -55,6 +53,9 @@ router
   .use(middleware.auth())
 
 router
-  .post('/email/verification-notification', [EmailVerificationsController, 'resendVerificationEmail'])
+  .post('/email/verification-notification', [
+    EmailVerificationsController,
+    'resendVerificationEmail',
+  ])
   .use(middleware.auth())
   .as('verification.send')

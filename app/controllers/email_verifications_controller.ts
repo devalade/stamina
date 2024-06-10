@@ -39,7 +39,7 @@ export default class EmailVerificationsController {
     return response.redirect().toPath('/dashboard')
   }
 
-  async resendVerification({ inertia, auth }: HttpContext) {
+  async resendVerificationEmail({ inertia, auth }: HttpContext) {
     await mail.sendLater(new VerifyAccountNotification(auth.user!))
     return inertia.render('auth/verify_email')
   }
