@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@adonisjs/ally':
+    specifier: ^5.0.2
+    version: 5.0.2(@adonisjs/core@6.9.1)
   '@adonisjs/auth':
     specifier: ^9.1.1
     version: 9.1.1(@adonisjs/assembler@7.7.0)(@adonisjs/core@6.9.1)(@adonisjs/lucid@20.6.0)(@adonisjs/session@7.4.1)(@japa/browser-client@2.0.3)(@japa/plugin-adonisjs@3.0.0)
@@ -195,6 +198,17 @@ packages:
       yargs-parser: 21.1.1
       youch: 3.3.3
       youch-terminal: 2.2.3
+
+  /@adonisjs/ally@5.0.2(@adonisjs/core@6.9.1):
+    resolution: {integrity: sha512-/A53dXiFwwwi9SM8U5dIffesCcNbklHqoME8zHYYO4KQ+dzg9CnubBtgcvH1XRJV8v52FgyUnPFFHDd8J3zI9A==}
+    engines: {node: '>=18.16.0'}
+    peerDependencies:
+      '@adonisjs/core': ^6.2.0
+    dependencies:
+      '@adonisjs/core': 6.9.1(@adonisjs/assembler@7.7.0)(@vinejs/vine@2.1.0)(edge.js@6.0.2)
+      '@poppinss/oauth-client': 5.1.3
+      '@poppinss/utils': 6.7.3
+    dev: false
 
   /@adonisjs/application@8.3.1(@adonisjs/config@5.0.2)(@adonisjs/fold@10.1.2):
     resolution: {integrity: sha512-hfZBgZ23BQAXvoSHDkc/I0hTSXyFVxypNqHPQ/WCk4VoWlBVWVgGaGnHLvIGhrZ3RMvyoC5NBgC0PR5G+/fGSw==}
@@ -1610,6 +1624,14 @@ packages:
       http-errors: 2.0.0
       safe-buffer: 5.2.1
       uid-safe: 2.1.5
+
+  /@poppinss/oauth-client@5.1.3:
+    resolution: {integrity: sha512-cjgac/0pwk/J+x1Jei/cAHTzstCuZE7KRfmdVhClb9zMUskw477rZPZ86dg1LBghw+IGaPtnAgmxTV9pNWG9ZQ==}
+    engines: {node: '>=18.16.0'}
+    dependencies:
+      '@poppinss/utils': 6.7.3
+      got: 14.2.1
+    dev: false
 
   /@poppinss/prompts@3.1.3:
     resolution: {integrity: sha512-lNAcOcvB7YhfaWYIsu8tatF9V61A0SEu8PGpGx9RqTVmImKhLT0AAcRPr/5z4UQMl7SIf5REQKMJhHK50xakYQ==}

@@ -90,7 +90,7 @@ export default function SignInPage() {
               {form.errors.password && <ErrorMessage message={form.errors.password} />}
             </div>
             <Button type="submit" className="w-full">
-              Sign Up
+              Register
             </Button>
             <div className="mb-6 mt-6 flex items-center justify-center">
               <div

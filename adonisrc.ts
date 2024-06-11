@@ -38,7 +38,8 @@ export default defineConfig({
     () => import('@adonisjs/inertia/inertia_provider'),
     () => import('@adonisjs/lucid/database_provider'),
     () => import('@adonisjs/auth/auth_provider'),
-    () => import('@adonisjs/mail/mail_provider')
+    () => import('@adonisjs/mail/mail_provider'),
+    () => import('@adonisjs/ally/ally_provider')
   ],
 
   /*
@@ -68,8 +69,8 @@ export default defineConfig({
         timeout: 2000,
       },
       {
-        files: ['tests/functional/**/*.spec(.ts|.js)'],
-        name: 'functional',
+        files: ['tests/browser/**/*.spec(.ts|.js)'],
+        name: 'browser',
         timeout: 30000,
       },
     ],
