@@ -95,14 +95,14 @@ export default class AuthSocialService {
    * turns social user's username into a Jagr safe username and ensures it's unique within the db
    * @param {string} username [description]
    */
-  private async getUniqueUsername(username: string) {
+  async getUniqueUsername(username: string) {
     if (typeof username !== 'string') {
       username = username + ''
     }
 
     username = string.slug(username, { lower: true, strict: true })
 
-    const occurances = await db.from('users').where('username', 'ILIKE', `${username}%`)
+    const occurances = await db.from('users').where('username', 'LIKE', `${username}%`)
     const incrementors = occurances
       .map((o) => o.username.match(/-\d+$/)?.at(0).replace('-', ''))
       .filter(Boolean)
