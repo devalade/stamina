@@ -14,10 +14,16 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare id: number
 
   @column()
+  declare username: string
+
+  @column()
   declare firstName: string | null
 
   @column()
   declare lastName: string | null
+
+  @column()
+  declare avatarUrl: string
 
   @computed()
   get fullName() {
@@ -32,6 +38,21 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @column()
   declare password: string
+
+  /**
+   * Provider
+   */
+  @column()
+  declare provider: string
+
+  @column()
+  declare providerId: string
+
+  @column()
+  declare providerEmail: string
+
+  @column()
+  declare providerAccessToken: string
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
