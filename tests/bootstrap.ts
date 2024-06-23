@@ -1,10 +1,12 @@
 import { assert } from '@japa/assert'
+import path, { join } from 'node:path'
 import app from '@adonisjs/core/services/app'
 import type { Config } from '@japa/runner/types'
 import { pluginAdonisJS } from '@japa/plugin-adonisjs'
 import testUtils from '@adonisjs/core/services/test_utils'
-import { browserClient } from "@japa/browser-client";
-import { authBrowserClient } from "@adonisjs/auth/plugins/browser_client";
+import { browserClient } from '@japa/browser-client'
+import { authBrowserClient } from '@adonisjs/auth/plugins/browser_client'
+import * as url from 'node:url'
 
 /**
  * This file is imported by the "bin/test.ts" entrypoint file
@@ -18,6 +20,12 @@ export const plugins: Config['plugins'] = [
   assert(),
   browserClient({
     runInSuites: ['browser'],
+    tracing: {
+      enabled: false,
+      event: 'onError',
+      cleanOutputDirectory: true,
+      outputDirectory: join(path.dirname(url.fileURLToPath(import.meta.url)), '../tests/traces'),
+    },
   }),
   pluginAdonisJS(app),
   authBrowserClient(app),
@@ -31,7 +39,11 @@ export const plugins: Config['plugins'] = [
  * The teardown functions are executer after all the tests
  */
 export const runnerHooks: Required<Pick<Config, 'setup' | 'teardown'>> = {
-  setup: [],
+  setup: [
+    () => testUtils.db().migrate(),
+    () => testUtils.db().truncate(),
+    () => testUtils.db().seed(),
+  ],
   teardown: [],
 }
 

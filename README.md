@@ -18,26 +18,31 @@ Stamina provides a robust and efficient foundation for building modern web appli
 2. **Clone the Repository:**
    ```bash
    git clone https://github.com/devalade/stamina.git
-    ```
+   ```
 3. **Install Dependencies:**
-  ```bash
-  cd stamina
-  npm install
-  ```
+
+```bash
+cd stamina
+npm install
+```
 
 4. **Database Setup:**
+
 - Configure your database connection details in `.env` (refer to AdonisJS documentation for specific instructions).
-- Run migration: 
+- Run migration:
   ```bash
   // touch tmp/db.sqlite3 # Run this command if you are using sqlite driver
-  node ace migration:run 
-  ```
-5. **Start the developpement server:**
-  ```bash
-  node ace serve
+  node ace migration:run
   ```
 
+5. **Start the developpement server:**
+
+```bash
+node ace serve
+```
+
 6. **Access the Application:**
+
 - Open http://localhost:3333 (or your configured port) in your browser.
 
 ## Additional Notes:
@@ -45,12 +50,13 @@ Stamina provides a robust and efficient foundation for building modern web appli
 - For more advanced usage and customization, refer to the official documentation for AdonisJS, Inertia.js, Tailwind CSS, and Resend.
 - Feel free to contribute to this starter kit by creating pull requests!
 
-
 ## Contributing:
+
 1. Fork the repository.
 2. Create a new branch for your changes.
 3. Implement your modifications and ensure proper testing.
 4. Submit a pull request for review.
 
 ## License:
+
 This project is open-source and available under the [MIT License](https://github.com/devalade/stamina/LICENSE).

@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine'
 
-export const signUpValidator = vine.compile(
+export const registerValidator = vine.compile(
   vine.object({
     firstName: vine.string().trim().minLength(3).maxLength(255),
     lastName: vine.string().trim().minLength(3).maxLength(255),
@@ -13,6 +13,10 @@ export const signUpValidator = vine.compile(
         const user = await db.from('users').where('email', value).first()
         return !user
       }),
-    password: vine.string().minLength(8).trim(),
+    password: vine
+      .string()
+      .minLength(8)
+      .trim()
+      .regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
   })
 )

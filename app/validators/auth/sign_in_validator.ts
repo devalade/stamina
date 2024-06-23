@@ -1,6 +1,6 @@
 import vine from '@vinejs/vine'
 
-export const signInValidator = vine.compile(
+export const loginValidator = vine.compile(
   vine.object({
     email: vine
       .string()
@@ -8,8 +8,7 @@ export const signInValidator = vine.compile(
       .trim()
       .normalizeEmail()
       .exists(async (db, value) => {
-        const user = await db.from('users').where('email', value).first()
-        return user
+        return await db.from('users').where('email', value).first()
       }),
     password: vine.string().minLength(8).trim(),
     action: vine.string().optional(),

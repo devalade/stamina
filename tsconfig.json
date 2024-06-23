@@ -4,8 +4,8 @@
     "rootDir": "./",
     "outDir": "./build",
     "paths": {
-      "~/*": ["./inertia/*"],
-    },
+      "~/*": ["./inertia/*"]
+    }
   },
 
   "exclude": ["./inertia/**/*", "node_modules", "build"]

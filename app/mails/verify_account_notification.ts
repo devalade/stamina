@@ -33,7 +33,7 @@ export default class VerifyAccountNotification extends BaseMail {
     this.message.htmlView('emails/verify_email', {
       url: href,
       appName: env.get('VITE_APP_NAME'),
-      lastName: this.user.lastName
+      lastName: this.user.lastName,
     })
 
     console.log({ userObject })

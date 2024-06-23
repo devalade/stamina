@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import { signUpValidator } from '#validators/auth/sign_up_validator'
+import { registerValidator } from '#validators/auth/sign_up_validator'
 import User from '#models/user'
 import emitter from '@adonisjs/core/services/emitter'
 import { inject } from '@adonisjs/core'
@@ -12,7 +12,7 @@ export default class RegisterController {
 
   @inject()
   async handle({ request, response, auth }: HttpContext, authSocialService: AuthSocialService) {
-    const payload = await request.validateUsing(signUpValidator)
+    const payload = await request.validateUsing(registerValidator)
     const username = await authSocialService.getUniqueUsername(payload.email.split('@').at(0)!)
     const user = await User.create({ ...payload, username })
     await auth.use('web').login(user)

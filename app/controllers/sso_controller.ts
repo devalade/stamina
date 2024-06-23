@@ -1,6 +1,10 @@
 import type { HttpContext } from '@adonisjs/core/http'
+import AuthSocialService from '#services/auth_social_service'
+import { inject } from '@adonisjs/core'
 
+@inject()
 export default class SsoController {
+  constructor(protected authSocialService: AuthSocialService) {}
   async show({ inertia }: HttpContext) {
     return inertia.render('auth/sso')
   }
@@ -9,11 +13,25 @@ export default class SsoController {
     await ally.use(params.provider).redirect()
   }
 
-  callback({ request, response }: HttpContext) {
-    return response.json({ data: 'Ok' })
+  async callback({ response, auth, params, session }: HttpContext) {
+    const {
+      success,
+      user,
+      message: formError,
+    } = await this.authSocialService.getUser(params.provider)
+
+    if (!success) {
+      session.flash('errors', { form: formError })
+      return response.redirect().toRoute('auth.login')
+    }
+
+    await auth.use('web').login(user!)
+
+    return response.redirect().toPath('/dashboard')
   }
 
-  unlink({ request, response }: HttpContext) {
+  unlink({ response }: HttpContext) {
+    // TODO:
     return response.json({ data: 'Ok' })
   }
 }

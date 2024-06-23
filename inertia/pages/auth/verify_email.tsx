@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { AuthContainer } from './_components/auth-container'
+import { Auth_container } from './_components/auth_container'
 import { Card } from '~/components/ui/card'
 import { Button } from '~/components/ui/button'
 
@@ -11,13 +11,14 @@ export default function VerifyEmailPage() {
   }
 
   return (
-    <AuthContainer>
+    <Auth_container>
       <Head title="Email verification" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
         <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-          Thanks for signing up! Before getting started, could you verify your email address by clicking on the
-          link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+          Thanks for signing up! Before getting started, could you verify your email address by
+          clicking on the link we just emailed to you? If you didn't receive the email, we will
+          gladly send you another.
         </div>
 
         {/*{status === 'verification-link-sent' && (*/}
@@ -41,6 +42,6 @@ export default function VerifyEmailPage() {
           </div>
         </form>
       </Card>
-    </AuthContainer>
+    </Auth_container>
   )
 }

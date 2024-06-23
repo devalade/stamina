@@ -2,11 +2,11 @@ import { SunIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import {
-  DropdownMenu,
+  Dropdown_menu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '~/components/ui/dropdown-menu'
+} from '~/components/ui/dropdown_menu'
 
 const THEMES = [
   { code: 'dark', label: 'Dark' },
@@ -28,7 +28,7 @@ export function ThemeSwitcher() {
     <>
       {createPortal(
         <span className="absolute w-fit h-fit top-4 right-4">
-          <DropdownMenu>
+          <Dropdown_menu>
             <DropdownMenuTrigger className="text-black dark:text-white font-semibold">
               <SunIcon className="w- h-6" />
             </DropdownMenuTrigger>
@@ -39,7 +39,7 @@ export function ThemeSwitcher() {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
-          </DropdownMenu>
+          </Dropdown_menu>
         </span>,
         document.body
       )}

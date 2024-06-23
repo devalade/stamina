@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { AuthContainer } from './_components/auth-container'
+import { Auth_container } from './_components/auth_container'
 import { Button } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
@@ -18,7 +18,7 @@ export default function SignInPage() {
   }
 
   return (
-    <AuthContainer>
+    <Auth_container>
       <Head title="Reset password" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -65,6 +65,6 @@ export default function SignInPage() {
           </form>
         </CardContent>
       </Card>
-    </AuthContainer>
+    </Auth_container>
   )
 }

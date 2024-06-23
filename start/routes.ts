@@ -16,12 +16,14 @@ import './auth.js'
 import { middleware } from '#start/kernel'
 
 router
-  .get('/home', function({ inertia }) {
+  .get('/home', function ({ inertia }) {
     return inertia.render('home')
-}).as('home')
+  })
+  .as('home')
 
 router
   .get('/dashboard', ({ inertia, auth }: HttpContext) => {
     console.log({ user: auth.user! })
     return inertia.render('home')
-}).use(middleware.auth())
+  })
+  .use(middleware.auth())

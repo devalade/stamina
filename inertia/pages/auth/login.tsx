@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { AuthContainer } from './_components/auth-container'
+import { Auth_container } from './_components/auth_container'
 import { Button, buttonVariants } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
@@ -20,7 +20,7 @@ export default function SignInPage() {
   }
 
   return (
-    <AuthContainer>
+    <Auth_container>
       <Head title="Sign in" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -48,7 +48,7 @@ export default function SignInPage() {
                 value={form.data.email}
                 onChange={(e) => form.setData('email', e.target.value)}
               />
-              {form.errors.email && <ErrorMessage message={form.errors.email} />}
+              <ErrorMessage errors={form.errors} name="email" />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
@@ -64,9 +64,9 @@ export default function SignInPage() {
                 value={form.data.password}
                 onChange={(e) => form.setData('password', e.target.value)}
               />
-              {form.errors.password && <ErrorMessage message={form.errors.password} />}
+              {form.errors.password && <ErrorMessage errors={form.errors} name="password" />}
             </div>
-            <Button type="submit" className="w-full">
+            <Button id="loginButton" type="submit" className="w-full">
               Sign In
             </Button>
             <div className="mb-6 mt-6 flex items-center justify-center">
@@ -117,6 +117,6 @@ export default function SignInPage() {
           </p>
         </CardContent>
       </Card>
-    </AuthContainer>
+    </Auth_container>
   )
 }

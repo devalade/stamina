@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
-import SsoController from "#controllers/sso_controller";
+const SsoController = () => import('#controllers/sso_controller')
 const RegisterController = () => import('#controllers/auth/register_controller')
 const LoginController = () => import('#controllers/auth/login_controller')
 const ResetPasswordController = () => import('#controllers/auth/reset_password_controller')
@@ -40,8 +40,8 @@ router.get('/legal/terms-of-service', function ({ inertia }: HttpContext) {
  */
 router
   .get('/:provider/redirect', [SsoController, 'redirect'])
-  .where('provider', /github|google/)
   .as('auth.social.redirect')
+  .where('provider', /github|google/)
 router
   .get('/:provider/callback', [SsoController, 'callback'])
   .where('provider', /github|google/)
@@ -62,10 +62,7 @@ router
   .use(middleware.auth())
 
 router
-  .get(
-    '/verify-email/:email',
-    [EmailVerificationsController, 'verify']
-  )
+  .get('/verify-email/:email', [EmailVerificationsController, 'verify'])
   .as('verification.verify')
   .use(middleware.auth())
 

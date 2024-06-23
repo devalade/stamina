@@ -4,15 +4,21 @@
 [x] - Add a register view
 [x] - Plug the register to the controller
 [x] - Add welcome mail
-[-] - Add mail confirmation
+[x] - Add mail confirmation
   [x] - Add a page to redirect a user when they haven't verified they email
   [x] - redirect a user when they try to login without verifying their email [ref: Login]
 [x] - Verify the email
 [ ] - Add google and github sso
+  [x] - add the provider key to field to the database: (provider: 'github|google', providerId, providerEmail, providerAccessToken)
+  [x] - add username field: the username should be the first part of the email
+  [x] - add the avatarUrl field into the user table
+[-] - Write test
+
+[ ] - add husky for linting
 
 ### Login
-[ ] - Add a login view
-[ ] - Plug the login to the controller
+[x] - Add a login view
+[x] - Plug the login to the controller
 [ ] - Add google and github sso
 
 ## Forgot password
@@ -43,7 +49,6 @@
 [ ] - Add the ability for a user to invite another user with account to the teams
 [ ] - Add the ability to invite a user with no account into team and make sure that he create his account
 [ ] - Add the ability to ban a user from a team
-
 
 # Advance part
 

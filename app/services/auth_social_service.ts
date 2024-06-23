@@ -54,6 +54,8 @@ export default class AuthSocialService {
         user.avatarUrl && user.avatarUrl.length > 500 ? '' : user.avatarUrl ?? undefined
       userMatch = await User.create({
         email: user.email!,
+        username,
+        avatarUrl,
         [userIdKey]: user.id,
         [userEmailKey]: user.email,
         [tokenKey]: user.token.token,
@@ -71,7 +73,6 @@ export default class AuthSocialService {
       })
       await userMatch.save()
     }
-
 
     return { success: true, user: userMatch, message: '' }
   }

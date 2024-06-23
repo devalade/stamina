@@ -2,7 +2,7 @@ import { SvgProps } from '~/types/svg'
 
 export default function GoogleIcon(props: SvgProps) {
   return (
-    <svg  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g clipPath="url(#clip0_829_635)">
         <path
           d="M19.8094 12.1497C19.8094 11.4942 19.7562 11.0158 19.6411 10.5198H12.1558V13.4784H16.5495C16.4609 14.2137 15.9826 15.321 14.9195 16.0651L14.9046 16.1641L17.2714 17.9976L17.4353 18.0139C18.9412 16.6232 19.8094 14.5769 19.8094 12.1497Z"

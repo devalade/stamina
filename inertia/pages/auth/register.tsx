@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { AuthContainer } from './_components/auth-container'
+import { Auth_container } from './_components/auth_container'
 import { Button, buttonVariants } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
@@ -22,7 +22,7 @@ export default function SignInPage() {
   }
 
   return (
-    <AuthContainer>
+    <Auth_container>
       <Head title="Sign up" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -49,7 +49,7 @@ export default function SignInPage() {
                 value={form.data.firstName}
                 onChange={(e) => form.setData('firstName', e.target.value)}
               />
-              {form.errors.firstName && <ErrorMessage message={form.errors.firstName} />}
+              {form.errors.firstName && <ErrorMessage errors={form.errors} name="firstName" />}
             </div>
 
             <div className="grid gap-2">
@@ -62,7 +62,7 @@ export default function SignInPage() {
                 value={form.data.lastName}
                 onChange={(e) => form.setData('lastName', e.target.value)}
               />
-              {form.errors.lastName && <ErrorMessage message={form.errors.lastName} />}
+              {form.errors.lastName && <ErrorMessage errors={form.errors} name="lastName" />}
             </div>
 
             <div className="grid gap-2">
@@ -76,7 +76,7 @@ export default function SignInPage() {
                 value={form.data.email}
                 onChange={(e) => form.setData('email', e.target.value)}
               />
-              {form.errors.email && <ErrorMessage message={form.errors.email} />}
+              {form.errors.email && <ErrorMessage errors={form.errors} name="email" />}
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
@@ -87,9 +87,9 @@ export default function SignInPage() {
                 value={form.data.password}
                 onChange={(e) => form.setData('password', e.target.value)}
               />
-              {form.errors.password && <ErrorMessage message={form.errors.password} />}
+              {form.errors.password && <ErrorMessage errors={form.errors} name="password" />}
             </div>
-            <Button type="submit" className="w-full">
+            <Button id="registerButton" type="submit" className="w-full">
               Register
             </Button>
             <div className="mb-6 mt-6 flex items-center justify-center">
@@ -109,8 +109,8 @@ export default function SignInPage() {
             </div>
           </form>
           <div className="flex items-center gap-x-4">
-            <Link
-              href=""
+            <a
+              href="/github/redirect"
               className={buttonVariants({
                 variant: 'outline',
                 className: 'block w-full gap-x-2',
@@ -118,14 +118,14 @@ export default function SignInPage() {
             >
               <GithubIcon className="w-6 h-6 " />
               Sign up with GitHub
-            </Link>
-            <Link
-              href=""
+            </a>
+            <a
+              href="/google/redirect"
               className={buttonVariants({ variant: 'outline', className: 'block w-full gap-x-2' })}
             >
               <GoogleIcon className="w-6 h-6" />
               Sign up with Google
-            </Link>
+            </a>
           </div>
 
           <p className="text-xs text-slate-11 font-normal mt-4">
@@ -157,6 +157,6 @@ export default function SignInPage() {
           </p>
         </CardContent>
       </Card>
-    </AuthContainer>
+    </Auth_container>
   )
 }
