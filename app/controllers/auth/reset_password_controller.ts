@@ -25,6 +25,6 @@ export default class ResetPasswordsController {
     user.password = newPassword
     await user.save()
 
-    return response.redirect().toPath('/sign-in')
+    return response.redirect().toPath('/login')
   }
 }

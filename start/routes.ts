@@ -15,7 +15,7 @@ import { HttpContext } from '@adonisjs/core/http'
 import { middleware } from '#start/kernel'
 
 import './auth.js'
-import UserDTO from "#validators/dtos/user_dto";
+import UserDTO from '#validators/dtos/user_dto'
 
 router.on('/').renderInertia('home')
 router.on('/home').renderInertia('home')

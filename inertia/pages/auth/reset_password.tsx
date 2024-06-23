@@ -1,7 +1,7 @@
-import { Head, Link, useForm } from '@inertiajs/react'
-import { Auth_container } from './_components/auth_container'
+import { Head, useForm } from '@inertiajs/react'
+import { AuthContainer } from './_components/auth_container'
 import { Button } from '~/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
 import { Label } from '~/components/ui/label'
 import { ErrorMessage } from '~/components/error_message'
@@ -18,7 +18,7 @@ export default function SignInPage() {
   }
 
   return (
-    <Auth_container>
+    <AuthContainer>
       <Head title="Reset password" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -40,7 +40,7 @@ export default function SignInPage() {
                 value={form.data.newPassword}
                 onChange={(e) => form.setData('newPassword', e.target.value)}
               />
-              {form.errors.newPassword && <ErrorMessage message={form.errors.newPassword} />}
+              <ErrorMessage errors={form.errors} name="newPassword" />
             </div>
 
             <div className="grid gap-2">
@@ -54,9 +54,7 @@ export default function SignInPage() {
                 value={form.data.confirmPassword}
                 onChange={(e) => form.setData('confirmPassword', e.target.value)}
               />
-              {form.errors.confirmPassword && (
-                <ErrorMessage message={form.errors.confirmPassword} />
-              )}
+              <ErrorMessage errors={form.errors} name="confirmPassword" />
             </div>
 
             <Button isLoading={form.processing} type="submit">
@@ -65,6 +63,6 @@ export default function SignInPage() {
           </form>
         </CardContent>
       </Card>
-    </Auth_container>
+    </AuthContainer>
   )
 }

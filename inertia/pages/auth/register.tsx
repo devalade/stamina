@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { Auth_container } from './_components/auth_container'
+import { AuthContainer } from './_components/auth_container'
 import { Button, buttonVariants } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
@@ -22,7 +22,7 @@ export default function SignInPage() {
   }
 
   return (
-    <Auth_container>
+    <AuthContainer>
       <Head title="Sign up" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -32,7 +32,7 @@ export default function SignInPage() {
           </CardTitle>
           <CardDescription className="mb-8 text-center sm:text-left text-base text-slate-400 font-normal">
             Already have an account?{' '}
-            <Link href="/register" className="text-blue-500">
+            <Link href="/login" className="text-blue-500">
               Log in
             </Link>{' '}
           </CardDescription>
@@ -157,6 +157,6 @@ export default function SignInPage() {
           </p>
         </CardContent>
       </Card>
-    </Auth_container>
+    </AuthContainer>
   )
 }

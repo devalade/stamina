@@ -41,7 +41,7 @@ import {
 } from '~/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/tabs'
 import { Sidebar } from '~/components/layouts/sidebar'
-import { Header } from "~/components/layouts/header";
+import { Header } from '~/components/layouts/header'
 
 export default function Dashboard() {
   return (

@@ -14,20 +14,22 @@
   [x] - add the avatarUrl field into the user table
 [-] - Write test
 
-[ ] - add husky for linting
+[X] - add husky for linting
 
 ### Login
 [x] - Add a login view
 [x] - Plug the login to the controller
-[ ] - Add google and github sso
+[x] - Add google and github sso
 
 ## Forgot password
-[ ] - Create the view to fill up the email
-[ ] - Plug to the controller ( Make sure that you send a mail to the mail with a sign token )
+[x] - Create the view to fill up the email
+[x] - Plug to the controller ( Make sure that you send a mail to the mail with a sign token )
 
 ### Reset password
 [ ] - Create a view to fill up the new password (make sure that the sign token is still valid)
 [ ] - Plug to the controller (Make sure you use the email in the controller)
+
+[ ] - Redirect the user if he hasn't verified the email
 
 ### Dashboard
 [ ] - Create view with some stats
