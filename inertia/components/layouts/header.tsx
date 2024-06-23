@@ -30,7 +30,7 @@ import {
 } from '~/components/ui/dropdown_menu'
 import type { UserProfile } from '#validators/dtos/user_dto'
 
-export function Header() {
+export function Header({ breadcrumbs }: { breadcrumbs: Array<{ link: string; title: string }> }) {
   const {
     props: { user },
   } = usePage<{ user: UserProfile }>()
@@ -89,21 +89,24 @@ export function Header() {
       </Sheet>
       <Breadcrumb className="hidden md:flex">
         <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="#">Dashboard</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="#">Orders</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Recent Orders</BreadcrumbPage>
-          </BreadcrumbItem>
+          {breadcrumbs.map((item, index) => (
+            <>
+              {breadcrumbs.length !== index + 1 ? (
+                <>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link href={item.link}>{item.title}</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                </>
+              ) : (
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{item.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              )}
+            </>
+          ))}
         </BreadcrumbList>
       </Breadcrumb>
       <div className="relative ml-auto flex-1 md:grow-0">

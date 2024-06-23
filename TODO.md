@@ -25,6 +25,8 @@
 [x] - Create the view to fill up the email
 [x] - Plug to the controller ( Make sure that you send a mail to the mail with a sign token )
 
+[ ] - Use shadcn police
+
 ### Reset password
 [ ] - Create a view to fill up the new password (make sure that the sign token is still valid)
 [ ] - Plug to the controller (Make sure you use the email in the controller)
@@ -39,7 +41,6 @@
 
 ### Landing Page
 [ ] - Reproduce the linear page
-
 
 ### Account switching
 [ ] - Add the ability to a user to switch to another account
