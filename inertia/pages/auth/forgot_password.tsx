@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { Auth_container } from './_components/auth_container'
+import { AuthContainer } from './_components/auth_container'
 import { Button } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
@@ -20,7 +20,7 @@ export default function SignInPage() {
   }
 
   return (
-    <Auth_container>
+    <AuthContainer>
       <Head title="Sign up" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -48,7 +48,7 @@ export default function SignInPage() {
                 value={form.data.email}
                 onChange={(e) => form.setData('email', e.target.value)}
               />
-              {form.errors.email && <ErrorMessage message={form.errors.email} />}
+              <ErrorMessage errors={form.errors} name="email" />
             </div>
             <Button type="submit" className="w-full">
               Send reset instructions
@@ -56,6 +56,6 @@ export default function SignInPage() {
           </form>
         </CardContent>
       </Card>
-    </Auth_container>
+    </AuthContainer>
   )
 }

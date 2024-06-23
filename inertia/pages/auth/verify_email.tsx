@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { Auth_container } from './_components/auth_container'
+import { AuthContainer } from './_components/auth_container'
 import { Card } from '~/components/ui/card'
 import { Button } from '~/components/ui/button'
 
@@ -11,7 +11,7 @@ export default function VerifyEmailPage() {
   }
 
   return (
-    <Auth_container>
+    <AuthContainer>
       <Head title="Email verification" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -42,6 +42,6 @@ export default function VerifyEmailPage() {
           </div>
         </form>
       </Card>
-    </Auth_container>
+    </AuthContainer>
   )
 }

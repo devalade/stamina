@@ -12,18 +12,17 @@ import { HttpContext } from '@adonisjs/core/http'
 /**
  * Authentication routes
  */
-import './auth.js'
 import { middleware } from '#start/kernel'
 
-router
-  .get('/home', function ({ inertia }) {
-    return inertia.render('home')
-  })
-  .as('home')
+import './auth.js'
+import UserDTO from "#validators/dtos/user_dto";
+
+router.on('/').renderInertia('home')
+router.on('/home').renderInertia('home')
 
 router
   .get('/dashboard', ({ inertia, auth }: HttpContext) => {
-    console.log({ user: auth.user! })
-    return inertia.render('home')
+    const userDTO = new UserDTO()
+    return inertia.render('dashboard', { user: userDTO.profile(auth.user!) })
   })
   .use(middleware.auth())

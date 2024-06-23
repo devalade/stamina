@@ -1,5 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react'
-import { Auth_container } from './_components/auth_container'
+import { AuthContainer } from './_components/auth_container'
 import { Button, buttonVariants } from '~/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
 import { Input } from '~/components/ui/input'
@@ -20,7 +20,7 @@ export default function SignInPage() {
   }
 
   return (
-    <Auth_container>
+    <AuthContainer>
       <Head title="Sign in" />
 
       <Card className="mx-auto w-full max-w-lg border-none bg-transparent">
@@ -86,8 +86,8 @@ export default function SignInPage() {
             </div>
           </form>
           <div className="flex items-center gap-x-4">
-            <Link
-              href=""
+            <a
+              href="/github/redirect"
               className={buttonVariants({
                 variant: 'outline',
                 className: 'block w-full gap-x-2',
@@ -95,9 +95,9 @@ export default function SignInPage() {
             >
               <GithubIcon className="w-6 h-6 " />
               Login with GitHub
-            </Link>
+            </a>
             <Link
-              href=""
+              href="/google/redirect"
               className={buttonVariants({ variant: 'outline', className: 'block w-full gap-x-2' })}
             >
               <GoogleIcon className="w-6 h-6" />
@@ -117,6 +117,6 @@ export default function SignInPage() {
           </p>
         </CardContent>
       </Card>
-    </Auth_container>
+    </AuthContainer>
   )
 }

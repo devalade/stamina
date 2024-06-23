@@ -52,8 +52,11 @@ export default class AuthSocialService {
     if (!userMatch) {
       let avatarUrl =
         user.avatarUrl && user.avatarUrl.length > 500 ? '' : user.avatarUrl ?? undefined
+      const [firstName, lastName] = user.name.split(' ')
       userMatch = await User.create({
         email: user.email!,
+        firstName,
+        lastName,
         username,
         avatarUrl,
         [userIdKey]: user.id,
