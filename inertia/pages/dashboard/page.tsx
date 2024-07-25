@@ -1,56 +1,12 @@
 import { Head } from '@inertiajs/react'
 import { Activity, CreditCard, DollarSign, Users } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Sidebar } from '~/components/layouts/sidebar'
 import { Header } from '~/components/layouts/header'
-import { ReactNode } from 'react'
+import { StatsItem } from '~/pages/dashboard/components/stats_item'
+import { RecentPayment } from '~/pages/dashboard/components/recent_payment'
+import { AreaChartLinear } from '~/pages/dashboard/components/area_chart_linear'
 
-export function DashboardStats() {
-  return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">Sales</CardTitle>
-        <CreditCard className="h-4 w-4 text-muted-foreground" />
-      </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold">+12,234</div>
-        <p className="text-xs text-muted-foreground">+19% from last month</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-export function StatsItem({
-  icon,
-  title,
-  description,
-  total,
-  type,
-}: {
-  icon: ReactNode
-  title: string
-  description: string
-  total: number
-  type: 'number' | 'money'
-}) {
-  function formatter(value: number) {
-    return (type === 'money' ? '$' : '+') + Intl.NumberFormat('en-US').format(value)
-  }
-  return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        {icon}
-      </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold">{formatter(total)}</div>
-        <p className="text-xs text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-export default function Dashboard() {
+export default function Page() {
   return (
     <>
       <Head title="Dashboard" />
@@ -89,6 +45,10 @@ export default function Dashboard() {
                 type="number"
                 icon={<Activity className="h-4 w-4 text-muted-foreground" />}
               />
+            </div>
+            <div className="grid grid-cols-2 gap-x-4">
+              <AreaChartLinear />
+              <RecentPayment />
             </div>
           </main>
         </div>

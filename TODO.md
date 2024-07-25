@@ -33,7 +33,7 @@
 
 [ ] - Redirect the user if he hasn't verified the email
 
-### Dashboard
+### Page
 [ ] - Create view with some stats
 [ ] - Create a page to handle all user in the apps
 [ ] - Create a settings page

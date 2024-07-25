@@ -23,6 +23,6 @@ router.on('/home').renderInertia('home')
 router
   .get('/dashboard', ({ inertia, auth }: HttpContext) => {
     const userDTO = new UserDTO()
-    return inertia.render('dashboard', { user: userDTO.profile(auth.user!) })
+    return inertia.render('dashboard/page', { user: userDTO.profile(auth.user!) })
   })
   .use(middleware.auth())
